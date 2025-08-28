@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { products } from "../product";
 import { FaRegHeart } from "react-icons/fa6";
+import { useCart } from "../context/cartContext";
+
+
 const Home = () => {
+  const { dispatch } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchType, setSearchType] = useState("searchTitle");
 
@@ -17,7 +21,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5 w-[80%] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-30 md:mt-5 w-[80%] mx-auto">
         <div className="p-2 border border-blue-600 rounded-md font-medium shadow shadow-blue-500 ">
           <select
             className="text-blue-600"
@@ -78,7 +82,9 @@ const Home = () => {
                   {product.salePrice} EGP.
                 </p>
                 <div className="flex items-center justify-between">
-                  <button className="px-5 py-2 bg-blue-600 text-white rounded-md mt-2.5 cursor-pointer">
+                  <button className="px-5 py-2 bg-blue-600 text-white rounded-md mt-2.5 cursor-pointer"
+                    onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
+                  >
                     Add To Cart
                   </button>
                   <FaRegHeart className="text-cyan-500 text-3xl cursor-pointer" />
