@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-30 md:mt-5 w-[80%] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-30 md:mt-30 w-[80%] mx-auto">
         <div className="p-2 border border-blue-600 rounded-md font-medium shadow shadow-blue-500 ">
           <select
             className="text-blue-600"
